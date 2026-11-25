@@ -1,0 +1,12 @@
+name: pruefung
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  pruefung:
+    if: startsWith(github.head_ref, 'facilis/t5')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: rot.txt darf nicht existieren
+        run: test ! -f rot.txt
